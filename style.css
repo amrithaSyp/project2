@@ -19,7 +19,14 @@
     gap: 20px;
     
 }
-.arrows {
+#Up-arrows {
+    width: 80px;
+    height: 50px;
+    padding: 10px;
+    font-size: 25px;
+    
+}
+#Down-arrows {
     width: 80px;
     height: 50px;
     padding: 10px;
@@ -55,7 +62,7 @@
     padding-left: 30px;  
     font-weight: 1;
 }
-.rect {
+#rect {
     border-radius: 10px;
     border: 1px solid rgb(48, 48, 48);  
     height: 50px;
@@ -78,11 +85,13 @@
 }
 #infobox {
     height: 420px;
-    width: 350px;
+    width: 320px;
     background-color: rgb(236, 236, 236);
     display: flex;
     flex-direction: row;
-  
+    font-size: 22px;
+    font-family: Noto Sans, sans-serif; 
+    padding-left: 30px; 
 }
 #infotitle {
     display: flex;
@@ -91,6 +100,11 @@
     justify-content: center;
 }
 
+#pokeContainer {
+    width: 350px; 
+    height: 350px;
+    border: 3px solid black;
+}
 #one {
     height: 40px;
     width: 100px;
@@ -114,7 +128,8 @@
 
 
 img {
-    border: 3px solid black;
+    width: 350px; 
+    height: 350px;
   }
 #bottom {
     display: flex;
@@ -124,9 +139,23 @@ img {
 
 
   }
-#txt {
+#txt1 {
+    height: 40px;
+    width: 100px;
+    background-color: rgb(236, 236, 236);
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 1;
+    border: 0px;
 
-  }
+}
+#txt2 {
+    height: 40px;
+    width: 100px;
+    background-color: lightgreen;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 1;
+    border: 0px;
+
+}
