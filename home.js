@@ -1,6 +1,8 @@
 
 var pokeCount = 1;
 var pokedex = {};
+
+
 //getPokemon(1);
 getPokemon(1); 
 getInfo(1);
@@ -24,7 +26,7 @@ function handleIncrement() {
 incrementCount.addEventListener("click", handleIncrement);
 
 
-//decrement-arrow NOT WORKING
+//decrement-arrow
 const decrementCount = document.getElementById("Down-arrows");
 
 
@@ -45,6 +47,7 @@ function handleDecrement() {
 
 };
 decrementCount.addEventListener("click", handleDecrement);
+
 
 //moves button
 const moveButton = document.getElementById("txt2");
@@ -67,16 +70,12 @@ function handleInfo() {
     moveButton.style.backgroundColor = 'rgb(236, 236, 236)';
 
 }
-
-
-
 infoButton.addEventListener("click", handleInfo);
 
 
 
 
-
-
+//delete function
 async function deleteP() {
     document.getElementById("Rect").innerHTML = "";
 
@@ -98,7 +97,9 @@ async function getPokemon(num) {
 
     let pokemonImg = pokemon["sprites"]["front_default"];
     let pokeHP = pokemon["stats"][0]["base_stat"];
-   /**types */
+   
+   
+    /**types */
     var i = 0;
     var length = pokemonType.length;
     while (i < length) {
@@ -149,43 +150,32 @@ async function getPokemon(num) {
             newType.style.backgroundColor = 'D685AD'
         }
         i++;
-        //pokemonType[i]["type"]["name"]
     }
-
-    console.log(pokeHP);
     pokedex[num] = {"name": pokemonName, "type": pokemonType, "image": pokemonImg};
 
     /** Adding title */
     let pokeTitle = document.createElement("p");
     pokeTitle.innerText = pokedex[num]["name"]
     document.getElementById("Rect").append(pokeTitle);
-    //
 
-    console.log(pokedex[num]["height"])
-   
-
-
+    //Adding image
     let pokeImage = document.createElement("img");
     pokeImage.src = pokemonImg;
     document.getElementById("pokeContainer").appendChild(pokeImage);
     
 }
 
-
+//moves function
 async function getMoves(num) {
     let url =  "https://pokeapi.co/api/v2/pokemon/" + num.toString(); 
     
     let res = await fetch(url);
     let pokemon = await res.json();
     let pokeMoves = pokemon["moves"]
-    console.log(pokeMoves)
     pokedex[num] = {}
     document.getElementById("Title").innerHTML = "Moves"
     var i = 0
     var length = pokeMoves.length
-    console.log(length)
-    let pokeInfo = document.createElement("p");
-
     while (i < length) {
         newType = document.createElement("div");
         newType.innerHTML = pokeMoves[i]["move"]["name"]
@@ -199,6 +189,7 @@ async function getMoves(num) {
 
 }
 
+//info function
 
 async function getInfo(num) {
     let url =  "https://pokeapi.co/api/v2/pokemon/" + num.toString(); 
@@ -229,11 +220,6 @@ async function getInfo(num) {
     
 
 }
-
-
-// pokemon.id = 1;
-// pokemon.innerText = pokedex[1]["name"];
-// pokemon.classList.add("pokemon-name");
 
 
 
